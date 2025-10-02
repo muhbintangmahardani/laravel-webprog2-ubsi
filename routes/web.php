@@ -1,23 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HelloWorldController;
+use App\Http\Controllers\HtmlController;
+use App\Http\Controllers\LatihanController;
 
-// Halaman utama
+
 Route::get('/', function () {
-    return view('home'); // resources/views/home.blade.php
+    return view('welcome');
 });
 
-// Halaman About
-Route::get('/about', function () {
-    return view('about'); // resources/views/about.blade.php
-});
-
-// Halaman Contact
-Route::get('/contact', function () {
-    return view('contact'); // resources/views/contact.blade.php
-});
-
-// Halaman Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard'); // resources/views/dashboard.blade.php
-});
+Route::get('helloworld', [HelloWorldController::class, 'index']);
+Route::get('ambilfile', [HelloWorldController::class, 'ambilFile']);
+Route::get('getlorem', [HtmlController::class, 'getLorem']);
+Route::get('/tabel', [LatihanController::class, 'getTabel']);
+Route::get('/form', [LatihanController::class, 'getForm']);
